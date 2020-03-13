@@ -111,6 +111,7 @@
         </style> 
 </head>
 <body>
+    <audio autoplay src="audio/opening_song.mp3"></audio>
     <div id="logo">
         <img src="logo_pacman.png">
     </div>
@@ -124,6 +125,8 @@
         <div id=score-number>
             <h1 class="puntaje"></h1>
         </div>
+        <audio id="comer" src="audio/eating.mp3"></audio>
+        <audio id="morir" src="audio/die.mp3"></audio>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="    crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
@@ -241,18 +244,22 @@
                 //Come puntos
                 if(world[pacman.y][pacman.x] == 1){
                     world[pacman.y][pacman.x] = 0;
+                    $("#comer")[0].play();
                     score += 10;
                 }
                 if(world[pacman.y][pacman.x] == 5){
                     world[pacman.y][pacman.x] = 0;
+                    $("#comer")[0].play();
                     score += 50;
                 }
                 if(world[pacman.y][pacman.x] == 6){
                     world[pacman.y][pacman.x] = 0;
+                    $("#comer")[0].play();
                     score += 20;
                 }
                 if(world[pacman.y][pacman.x] == 3){
                     world[pacman.y][pacman.x] = 0;
+                    $("#morir")[0].play();
                     score = 0;  
                     
                 }
